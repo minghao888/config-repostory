@@ -25,4 +25,4 @@ eureka:
     #《一般不用设置，只是在开发阶段设置》
     lease-renewal-interval-in-seconds: 5   #与eureka服务发送心跳的时间间隔 s/秒
     lease-expiration-duration-in-seconds: 20  #续约到期时间（指定时间内未发送心跳，代表当前服务挂掉了） s/秒
-name: itcast-product 
+name: itcast-product-1
