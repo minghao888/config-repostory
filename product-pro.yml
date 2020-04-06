@@ -1,0 +1,28 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: service-product
+  datasource:
+    #driver-class-name: com.mysql.jdbc.Driver   #mysql 5.0 +的驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver    #mysql 8.0 +的驱动
+    url: jdbc:mysql://192.168.1.128:3306/study_cloud?serverTimezone=GMT%2B8&amp&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+#配置eureka_client
+eureka:
+  client:
+    service-url:
+      #defaultZone:  http://localhost:9000/eureka/  #eureka_server的注册地址
+      defaultZone:  http://127.0.0.1:9000/eureka/,http://127.0.0.1:8000/eureka/  #eureka_server的注册地址(集群)
+  instance:
+    prefer-ip-address: true #使用ip地址注册到eureka
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}  #向注册中心注册当前服务的ip+port  使得更方便查找
+    #《一般不用设置，只是在开发阶段设置》
+    lease-renewal-interval-in-seconds: 5   #与eureka服务发送心跳的时间间隔 s/秒
+    lease-expiration-duration-in-seconds: 20  #续约到期时间（指定时间内未发送心跳，代表当前服务挂掉了） s/秒
+name: itcast-pro
