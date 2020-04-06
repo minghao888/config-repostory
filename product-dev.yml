@@ -13,6 +13,12 @@ spring:
     database: MySQL
     show-sql: true
     open-in-view: true
+  #配置rabbitmq，通过bus消息总线动态刷新配置信息
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 #配置eureka_client
 eureka:
   client:
